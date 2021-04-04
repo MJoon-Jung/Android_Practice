@@ -9,8 +9,6 @@ import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
 
-import java.util.Date;
-
 public class OneDayDecorator implements DayViewDecorator {
     private CalendarDay date;
 
@@ -28,9 +26,6 @@ public class OneDayDecorator implements DayViewDecorator {
         view.addSpan(new StyleSpan(Typeface.BOLD));
         view.addSpan(new RelativeSizeSpan(1.2f));
         view.addSpan(new ForegroundColorSpan(0xff000000));
-    }
-    public void setDate(Date date){
-        this.date = CalendarDay.from(date);
     }
 
 }

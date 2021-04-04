@@ -12,10 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        app:mcv_selectionColor="#00F"
-        app:mcv_showOtherDates="all"
         app:mcv_arrowColor="#8883f2"
-        />
+        app:mcv_selectionColor="#00F"
+        app:mcv_showOtherDates="defaults" />
+
     <LinearLayout
         android:id="@+id/calendar_colorpick"
         android:layout_below="@+id/calendarView"
@@ -72,5 +72,11 @@
             android:layout_weight="1"/>
 
     </LinearLayout>
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
