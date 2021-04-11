@@ -1,5 +1,6 @@
 package com.example.Calendar;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -30,6 +33,15 @@ public class DayFragment extends Fragment {
     private PieChart piechart;
     private HorizontalBarChart barChart;
 
+    RecyclerView recyclerView;
+    String[] title = {"Event 1", "Event 2", "Event 3"};
+    String[] time = {"11:00 PM", "10:03 AM", "10:03 PM"};
+    String[] term = {"24","32","35"};
+
+    List<TimeLineModel> timeLineModelList;
+    TimeLineModel[] timeLineModel;
+    LinearLayoutManager linearLayoutManager;
+
     private int [] c = new int [] {Color.parseColor("#15ff00"), Color.parseColor("#fbff00"),
             Color.parseColor("#ff2200"), Color.parseColor("#2b00ff")};
 
@@ -46,8 +58,31 @@ public class DayFragment extends Fragment {
         piechart = (com.github.mikephil.charting.charts.PieChart) v.findViewById(R.id.piechart);
         setPieData();
 
+        timeLineModelList = new ArrayList<>();
+//        setTimeData();
+        int size = title.length;
+        timeLineModel = new TimeLineModel[size];
+
+        for (int i = 0; i < size; i++) {
+            timeLineModel[i] = new TimeLineModel();
+            timeLineModel[i].setTitle(title[i]);
+            timeLineModel[i].setTime(time[i]);
+            timeLineModel[i].setTerm(term[i]);
+            timeLineModelList.add(timeLineModel[i]);
+        }
+        Context context = getContext();
+
+        linearLayoutManager = new LinearLayoutManager(context);
+        recyclerView = (RecyclerView) v.findViewById(R.id.rv);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(new TimeLineAdapter(timeLineModelList, context));
+
         return v;
     }
+    private void setTimeData(){
+
+    }
+
 
     //PieChart data setting
     private void setPieData(){
@@ -110,5 +145,4 @@ public class DayFragment extends Fragment {
 
         barChart.setData(barData);
     }
-
 }

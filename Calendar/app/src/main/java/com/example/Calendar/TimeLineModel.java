@@ -1,8 +1,17 @@
 package com.example.Calendar;
 
 public class TimeLineModel {
-    private String name;
+    private String title;
     private String time;
+    private String term;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public String getTime() {
         return time;
@@ -12,30 +21,11 @@ public class TimeLineModel {
         this.time = time;
     }
 
-    private String status;
-    private String description;
-
-    public String getName() {
-        return name;
+    public String getTerm() {
+        return term;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTerm(String term) {
+        this.term = term;
     }
 }

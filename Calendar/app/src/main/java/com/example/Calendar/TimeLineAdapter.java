@@ -1,5 +1,6 @@
 package com.example.Calendar;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,39 +27,46 @@ public class TimeLineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_day, parent, false);
-//        return new RecyclerView.ViewHolder(view, viewType);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.timeline, parent, false);
+        return new ViewHolder(view, viewType);
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        ((ViewHolder) holder).tv_title.setText(timeLineModelList.get(position).getTitle());
+        ((ViewHolder) holder).tv_time.setText(timeLineModelList.get(position).getTime());
+        ((ViewHolder)holder).tv_term.setText(timeLineModelList.get(position).getTerm());
+
+
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-//        ((RecyclerView.ViewHolder) holder).textView.setText(timeLineModelList.get(position).getName());
-//        ((ViewHolder) holder).textViewDescription.setText(timeLineModelList.get(position).getDescription());
-//        ((ViewHolder)holder).textViewTime.setText(timeLineModelList.get(position).getTime());
-//
-//        if (timeLineModelList.get(position).getStatus().equals("inactive"))
-//            ((ViewHolder) holder).timelineView.setMarker(context.getDrawable(ic_remove_circle_outline_black_24dp));
-//        else
-//            ((ViewHolder) holder).timelineView.setMarker(context.getDrawable(ic_check_circle_black_24dp));
+    public int getItemViewType(int position) {
+        return TimelineView.getTimeLineViewType(position, getItemCount());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return timeLineModelList.size();
     }
-    private class ViewHolder extends RecyclerView.ViewHolder {
 
-//        TimelineView timelineView;
-//        TextView textView, textViewDescription, textViewTime;
-//
-        ViewHolder(View itemView, int viewType) {
+
+    private class ViewHolder extends RecyclerView.ViewHolder {
+        protected TimelineView timelineView;
+        protected TextView tv_title;
+        protected TextView tv_time;
+        protected TextView tv_term;
+
+        public ViewHolder(View itemView, int viewType) {
             super(itemView);
-//            timelineView = itemView.findViewById(R.id.row_timeline_layout_time_marker);
-//            textView = itemView.findViewById(R.id.row_timeline_layout_text_view_name);
-//            textViewDescription = itemView.findViewById(R.id.row_timeline_layout_text_view_description);
-//            textViewTime = itemView.findViewById(R.id.row_timeline_layout_text_view_time);
-//
-//            timelineView.initLine(viewType);
+            timelineView = (TimelineView) itemView.findViewById(R.id.timeline);
+            tv_title = (TextView) itemView.findViewById(R.id.tv_title);
+            tv_time = (TextView) itemView.findViewById(R.id.tv_time);
+            tv_term = (TextView) itemView.findViewById(R.id.tv_term);
+
+            timelineView.initLine(viewType);
+
         }
     }
 }

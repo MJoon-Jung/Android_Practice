@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
@@ -112,6 +112,7 @@
 
         <com.github.mikephil.charting.charts.PieChart
             android:layout_marginTop="30dp"
+            android:layout_marginBottom="100dp"
             android:id="@+id/piechart"
             android:layout_gravity="center"
             android:layout_width="300dp"
@@ -119,21 +120,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <com.github.vipulasri.timelineview.TimelineView
-                android:id="@+id/timeline"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:markerSize="20dp"
-                app:lineWidth="2dp"
-                app:startLineColor="#52089c"
-                app:endLineColor="#aa54ff"
-                app:linePadding="5dp"/>
-
-        </androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="wrap_content"/>
 
 
 
