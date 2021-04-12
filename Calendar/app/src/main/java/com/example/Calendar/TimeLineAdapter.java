@@ -1,6 +1,5 @@
 package com.example.Calendar;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +30,6 @@ public class TimeLineAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return new ViewHolder(view, viewType);
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ((ViewHolder) holder).tv_title.setText(timeLineModelList.get(position).getTitle());

@@ -16,7 +16,6 @@ public class PagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position)
         {
-
             case 1:
                 return new WeekFragment();
             case 2:

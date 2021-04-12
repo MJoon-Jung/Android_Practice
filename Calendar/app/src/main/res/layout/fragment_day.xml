@@ -103,27 +103,47 @@
                 android:layout_gravity="center"/>
         </GridLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="과목별 공부량"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:textSize="15sp"/>
 
         <com.github.mikephil.charting.charts.HorizontalBarChart
             android:id="@+id/barChart"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="200dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="공부/휴식 비율"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_marginTop="30dp"/>
         <com.github.mikephil.charting.charts.PieChart
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginTop="20dp"
             android:id="@+id/piechart"
             android:layout_gravity="center"
             android:layout_width="300dp"
             android:layout_height="300dp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="타임라인"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </FrameLayout>

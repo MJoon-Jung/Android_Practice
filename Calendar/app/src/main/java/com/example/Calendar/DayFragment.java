@@ -34,9 +34,9 @@ public class DayFragment extends Fragment {
     private HorizontalBarChart barChart;
 
     RecyclerView recyclerView;
-    String[] title = {"Event 1", "Event 2", "Event 3"};
-    String[] time = {"11:00 PM", "10:03 AM", "10:03 PM"};
-    String[] term = {"24","32","35"};
+    String[] title = {"Event 1", "Event 2", "Event 3", "event 4","event 4","event 4"};
+    String[] time = {"11:00 PM", "10:03 AM", "10:03 PM","event 4","event 4","event 4"};
+    String[] term = {"24","32","35","event 4","event 4","event 4"};
 
     List<TimeLineModel> timeLineModelList;
     TimeLineModel[] timeLineModel;
@@ -78,9 +78,6 @@ public class DayFragment extends Fragment {
         recyclerView.setAdapter(new TimeLineAdapter(timeLineModelList, context));
 
         return v;
-    }
-    private void setTimeData(){
-
     }
 
 
